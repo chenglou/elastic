@@ -1,0 +1,4 @@
+B _build/**/*
+S src*/**/*
+PKG compiler-libs.common findlib uutf uunf uucp gen containers ppx_import ppx_deriving.std
+PKG oUnit

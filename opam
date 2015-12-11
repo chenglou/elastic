@@ -1,0 +1,36 @@
+opam-version: "1.2"
+name: "elastic"
+version: "1.0"
+maintainer: "chenglou"
+authors: [ "chenglou" ]
+license: "MIT"
+homepage: "https://github.com/chenglou/elastic"
+doc: "http://chenglou.github.io/elastic"
+bug-reports: "https://github.com/chenglou/elastic/issues"
+dev-repo: "git://github.com/chenglou/elastic.git"
+tags: [ "syntax" ]
+substs: [ "pkg/META" ]
+build: [
+  "ocaml" "pkg/build.ml" "native=%{ocaml-native}%"
+                         "native-dynlink=%{ocaml-native-dynlink}%"
+                         "utop=%{utop:installed}%"
+]
+build-test: [
+  "ocamlbuild" "-classic-display" "-use-ocamlfind" "--"
+]
+depends: [
+  "ocamlfind"    {build}
+  "uutf"         {>= "0.9.4"}
+  "uunf"
+  "uucp"
+  "gen"          {>= "0.2.3"}
+  "ounit"        {test}
+  "ppx_deriving" {test}
+]
+depopts: [
+  "utop"
+]
+conflicts: [
+  "utop" {< "1.17"}
+]
+available: [ ocaml-version >= "4.02.0" ]

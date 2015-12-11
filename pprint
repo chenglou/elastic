@@ -1,0 +1,4 @@
+#!/bin/bash
+make
+echo "----------------------------------------------------------------"
+./m17n_pp.native -from elastic -to elastic tests/$1.ml

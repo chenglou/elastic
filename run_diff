@@ -1,0 +1,6 @@
+files=(./tests/*.ml)
+ref_files=(./tests/reference/*.ml)
+for ((i=0;i<${#files[@]};++i)); do
+echo "================================================================================================"
+icdiff "${files[i]}" "${ref_files[i]}"
+done

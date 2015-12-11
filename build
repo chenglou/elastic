@@ -1,0 +1,7 @@
+#!/bin/bash
+rm -f tests/$1.out
+make
+echo "----------------------------------------------------------------"
+ocamlc -pp "./m17n_pp.native -from elastic -to binary" tests/$1.ml -o tests/$1.out
+tests/$1.out
+rm -f tests/$1.cmo tests/$1.cmi

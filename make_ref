@@ -1,0 +1,7 @@
+cd tests
+files=*.ml
+for f in $files
+do
+../m17n_pp.native -from elastic -to elastic "$f" > "reference/$f"
+echo "Generating reference for $f"
+done
