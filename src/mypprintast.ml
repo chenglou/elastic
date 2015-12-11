@@ -1127,7 +1127,7 @@ class printer  ()= object(self:'self)
         pp f "(val@ %a)"  self#expression  e
     | Pmod_extension e -> self#extension f e
 
-  method structure f x = self#list ~sep:"@\n\n" self#structure_item f x
+  method structure f x = pp f "%a\n" (self#list ~sep:"@\n\n" self#structure_item) x
 
   method payload f = function
     | PStr [{pstr_desc = Pstr_eval (e, attrs)}] ->
